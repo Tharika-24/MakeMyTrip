@@ -1,6 +1,11 @@
 package POM;
 
 import Base.Baseclass;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,6 +14,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
 
 
@@ -49,7 +58,14 @@ public class Homepage extends Baseclass {
         }
     }
 
-    public void selectFromCity(String cityName) throws InterruptedException {
+    public void selectFromCity(String cityName) throws InterruptedException, IOException {
+
+//        FileInputStream excell = new FileInputStream("C:\\Users\\Thari\\eclipse-workspace\\Makemytrip\\Data\\Test data.xlsx");
+//        Workbook book = new XSSFWorkbook(excell);
+//        Sheet sheet = book.getSheet("travel");
+//        Row row = sheet.getRow(1);
+//        Cell cell = sheet.getRow(1).getCell(0);
+//        String stringCellValue = cell.getStringCellValue();
 
 
         Thread.sleep(1000);

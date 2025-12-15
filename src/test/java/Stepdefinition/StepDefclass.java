@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class StepDefclass extends Baseclass {
 
     Homepage Bus = new Homepage();
@@ -32,7 +34,7 @@ public class StepDefclass extends Baseclass {
     }
 
     @When("the user enters pickup location {string}")
-    public void the_user_enters_pickup_location(String city) throws InterruptedException {
+    public void the_user_enters_pickup_location(String city) throws InterruptedException, IOException {
         Thread.sleep(2000);
 
         Bus.selectFromCity(city);

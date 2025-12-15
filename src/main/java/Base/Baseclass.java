@@ -1,5 +1,7 @@
 package Base;
 
+import com.google.common.io.Files;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -8,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class Baseclass {
@@ -15,14 +19,14 @@ public class Baseclass {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    // Launch Browser
+
     public static void launch() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
 
-    // Load URL
+
     public static void Url(String url) {
         driver.get(url);
     }
@@ -46,10 +50,12 @@ public class Baseclass {
     public static void closebrowser() {
         driver.quit();
     }
-    public static void windowMaximize(){
+
+    public static void windowMaximize() {
         driver.manage().window().maximize();
     }
-    public static void Click(WebElement element){
+
+    public static void Click(WebElement element) {
         element.click();
     }
 
@@ -77,7 +83,7 @@ public class Baseclass {
         js.executeScript("arguments[0].click();", element);
     }
 
-    // Scroll to element using JS (best for seat maps)
+
     public static void jsScrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
@@ -108,12 +114,18 @@ public class Baseclass {
         new Actions(driver).sendKeys(Keys.ESCAPE).perform();
     }
 
-    // Press & Release PAGE UP using Robot
+
     public static void pageUp() throws AWTException {
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_PAGE_UP);
         robot.keyRelease(KeyEvent.VK_PAGE_UP);
     }
 
+    public void Screenshot(String img) throws IOException {
 
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File ScreenshotAs = ts.getScreenshotAs(OutputType.FILE);
+        File imgpath = new File("C:\\Users\\Thari\\eclipse-workspace\\Makemytrip\\target\\Screenshot\\" + img + ".jpg");
+        FileUtils.copyFile(ScreenshotAs, imgpath);
+    }
 }

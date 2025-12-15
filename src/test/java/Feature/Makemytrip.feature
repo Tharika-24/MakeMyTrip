@@ -22,7 +22,7 @@ Feature: Book Cheapest Bus
 
     Examples:
       | FromCity | ToCity    | Name    | Age | Emailid                   | Mobile     |
-      | chennai  | Bangalore | Tharika | 30  | Cheruku.tharika@gmail.com | 9100384842 |
+      | Madurai  | Bangalore | Tharika | 30  | Cheruku.tharika@gmail.com | 9100384842 |
 
 
 
